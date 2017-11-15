@@ -1,0 +1,3 @@
+[submodule "altdns"]
+	path = altdns
+	url = https://github.com/infosec-au/altdns.git
