@@ -1,3 +1,6 @@
 [submodule "altdns"]
 	path = altdns
 	url = https://github.com/infosec-au/altdns.git
+[submodule "mobile/android/apkx"]
+	path = mobile/android/apkx
+	url = https://github.com/b-mueller/apkx.git
