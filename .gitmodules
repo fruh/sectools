@@ -7,3 +7,6 @@
 [submodule "web/wfuzz"]
 	path = web/wfuzz
 	url = https://github.com/xmendez/wfuzz.git
+[submodule "network/testssl.sh"]
+	path = network/testssl.sh
+	url = https://github.com/drwetter/testssl.sh.git
