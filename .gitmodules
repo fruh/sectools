@@ -4,3 +4,6 @@
 [submodule "mobile/android/apkx"]
 	path = mobile/android/apkx
 	url = https://github.com/b-mueller/apkx.git
+[submodule "web/wfuzz"]
+	path = web/wfuzz
+	url = https://github.com/xmendez/wfuzz.git
