@@ -10,3 +10,6 @@
 [submodule "network/testssl.sh"]
 	path = network/testssl.sh
 	url = https://github.com/drwetter/testssl.sh.git
+[submodule "web/davtestpy"]
+	path = web/davtestpy
+	url = https://github.com/FrUh/davtestpy.git
