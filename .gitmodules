@@ -13,3 +13,6 @@
 [submodule "web/davtestpy"]
 	path = web/davtestpy
 	url = https://github.com/FrUh/davtestpy.git
+[submodule "web/sqlmap"]
+	path = web/sqlmap
+	url = https://github.com/sqlmapproject/sqlmap.git
