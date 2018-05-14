@@ -5,14 +5,11 @@ from optparse import OptionParser
 
 
 def get_path(options, pkgname):
-    if options.serial:
-        p = subprocess.Popen(["adb", "-s", options.serial, "shell", "pm", "path", pkgname], stdout=subprocess.PIPE)
-    else:
-        p = subprocess.Popen(["adb", "shell", "pm", "path", pkgname], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["adb", "-s", options.serial, "shell", "pm", "path", pkgname], stdout=subprocess.PIPE)
     path = p.stdout.read()
     p.wait()
-
     path = path.split("package:")[1].strip()
+
     print("Package at: {}".format(path))
 
     return path
@@ -23,14 +20,35 @@ def pull_apk(options, path, pkgname):
         output = "{}.apk".format(pkgname)
     else:
         output = options.output
-    if options.serial:
-        p = subprocess.Popen(["adb", "-s", options.serial, "pull", path, output])
-    else:
-        p = subprocess.Popen(["adb", "pull", path, output])
+    p = subprocess.Popen(["adb", "-s", options.serial, "pull", path, output])
     p.wait()
 
     print("File saved as: {}\n".format(output))
 
+
+def list_devices():
+    p = subprocess.Popen(["adb", "devices"], stdout=subprocess.PIPE)
+    devices = p.stdout.read()
+    p.wait()
+
+    devices = devices.split("\n")
+    i = 1
+
+    d_count = len(devices) - 1
+
+    for d in devices[1:]:
+        if len(d) == 0:
+            d_count = i
+            break
+        print("{}: {}".format(i, d))
+        i += 1
+    d_num = int(raw_input("\nSelect device to connect: "))
+
+    if d_num >= d_count:
+        print("[-] Error invalid device index")
+        sys.exit(1)
+
+    return devices[d_num].split()[0]
 
 parser = OptionParser()
 parser.add_option("-s", "--serial", dest="serial",
@@ -50,11 +68,13 @@ parser.add_option("-a", "--auto",
 
 (options, args) = parser.parse_args()
 
+if not options.serial:
+    options.serial = list_devices()
+
+print("Connecting to device: {}".format(options.serial))
+
 # list packages
-if options.serial:
-    p = subprocess.Popen(["adb", "-s", options.serial, "shell", "pm", "list", "packages"], stdout=subprocess.PIPE)
-else:
-    p = subprocess.Popen(["adb", "shell", "pm", "list", "packages"], stdout=subprocess.PIPE)
+p = subprocess.Popen(["adb", "-s", options.serial, "shell", "pm", "list", "packages"], stdout=subprocess.PIPE)
 packages = p.stdout.read()
 p.wait()
 
@@ -97,7 +117,7 @@ if options.auto_pull:
         sys.exit(1)
 else:
     topull = int(raw_input("\nType index of the package to pull: "))
-    pkgnames = pkgnames[topull]
+    pkgnames = [pkgnames[topull]]
 
 for pkg in pkgnames:
     path = get_path(options, pkg)

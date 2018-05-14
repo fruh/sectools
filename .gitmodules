@@ -19,3 +19,27 @@
 [submodule "mobile/Mobile-Security-Framework-MobSF"]
 	path = mobile/Mobile-Security-Framework-MobSF
 	url = https://github.com/MobSF/Mobile-Security-Framework-MobSF.git
+[submodule "mobile/android/janus"]
+	path = mobile/android/janus
+	url = https://github.com/odensc/janus
+[submodule "network/smbmap"]
+	path = network/smbmap
+	url = https://github.com/ShawnDEvans/smbmap
+[submodule "network/net-creds"]
+	path = network/net-creds
+	url = https://github.com/DanMcInerney/net-creds
+[submodule "web/jwtcrack"]
+	path = web/jwtcrack
+	url = https://github.com/Sjord/jwtcrack
+[submodule "web/ssrf/Tiny-URL-Fuzzer"]
+	path = web/ssrf/Tiny-URL-Fuzzer
+	url = https://github.com/orangetw/Tiny-URL-Fuzzer
+[submodule "smbmap"]
+	path = smbmap
+	url = https://github.com/ShawnDEvans/smbmap
+[submodule "reversing/cutter"]
+	path = reversing/cutter
+	url = https://github.com/radareorg/cutter
+[submodule "mobile/StaCoAn"]
+	path = mobile/StaCoAn
+	url = https://github.com/vincentcox/StaCoAn
