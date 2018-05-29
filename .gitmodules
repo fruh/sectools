@@ -43,3 +43,15 @@
 [submodule "mobile/StaCoAn"]
 	path = mobile/StaCoAn
 	url = https://github.com/vincentcox/StaCoAn
+[submodule "windows/symboliclink-testing-tools"]
+	path = windows/symboliclink-testing-tools
+	url = https://github.com/google/symboliclink-testing-tools
+[submodule "windows/PowerSploit"]
+	path = windows/PowerSploit
+	url = https://github.com/PowerShellMafia/PowerSploit
+[submodule "mobile/android/scrcpy-docker"]
+	path = mobile/android/scrcpy-docker
+	url = https://github.com/pierlon/scrcpy-docker
+[submodule "fuzzers/radamsa"]
+	path = fuzzers/radamsa
+	url = https://github.com/aoh/radamsa
